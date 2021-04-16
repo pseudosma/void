@@ -74,7 +74,7 @@ title = "void"
    ```
   2. Create a new chapter's folder that matches the *url* and add a single markdown file in it that matches the *identifier*.
 
-  3. Add a title, date, and author to your markdown file and start writing.
+  3. Add a title and copyright to your markdown file and start writing.
 
 :warning: All links to stories and chapters combine the *url* and the *identifer* to build the path. Use the *url*, ending in a slash, to specify any parent folders and the *identifier* to specify the file name .
 
