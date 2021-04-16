@@ -42,7 +42,7 @@ title = "void"
 
   2. Create a new markdown file under you site's **./content** that matches the *identifier*.
 
-  3. Add a title, date, and author to your markdown file and start writing. The date and author will be used in a copyright at the bottom of the page.
+  3. Add a title and copyright to your markdown file and start writing.
 
   ```markdown
   ---
