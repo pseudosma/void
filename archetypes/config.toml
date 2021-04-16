@@ -1,0 +1,42 @@
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+baseURL = "http://localhost:1313/"
+theme="void"
+
+title = "void"
+
+[params]
+  subtitle = "is this from the future or the past?"
+  navigationText = "enter"
+
+[menu]
+
+  [[menu.main]]
+    [[menu.main]]
+      name = "New Story"
+      identifier = "new_story"
+      weight = 100
+      [menu.main.params]
+        description = "This is a placeholder for a new story"
+
+  [[menu.main]]
+    name = "Story With Chapters"
+    identifier = "story_with_chapters"
+    weight = 200
+    [menu.main.params]
+      description = "This is a placeholder for a story with chapters"
+
+  [[menu.main]]
+    identifier = "story_with_chapters_1"
+    url = "story_with_chapters/"
+    weight = 1
+    parent = "story_with_chapters"
+
+  [[menu.main]]
+    identifier = "story_with_chapters_2"
+    url = "story_with_chapters/"
+    weight = 2
+    parent = "story_with_chapters"
+    [menu.main.params]
+      description = "Chapter 2 has a description."

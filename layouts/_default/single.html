@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <link rel="stylesheet" href="{{ "css/post.min.css" | relURL }}">
+        <script src="{{ "js/post.min.js" | relURL }}"></script>
+        {{ partial "head.html" . }}
+        {{ $ctx := . }}
+        <script>
+            function getPageIndexInMenu(p) {
+                var c = 0;
+                if (Array.isArray(p)) {
+                    var i = 0;
+                    const l = window.location.href.split("?");
+                    {{ range .Site.Menus.main }}
+                        var u;
+                        {{ if .HasChildren }}
+                            {{ range .Children }}
+                                u = `{{ $ctx.Site.BaseURL }}{{ .URL }}{{ .Identifier }}`.replace(/"/gm,"");
+                                if ( l[0] === u || l[0] === (u + "/")) {
+                                    c = i; 
+                                }
+                                p.push(u);
+                                i ++;
+                            {{ end }}
+                        {{ else }}
+                            u = `{{ $ctx.Site.BaseURL }}{{ .URL }}{{ .Identifier }}`.replace(/"/gm,"");
+                            if ( l[0] === u || l[0] === (u + "/")) {
+                                c = i; 
+                            }
+                            p.push(u);
+                            i ++;
+                        {{ end }}
+                    {{ end }}
+                }
+                return c;
+            }
+        </script>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center;">
+            <div style="display: flex; justify-content: center;">
+                <svg id="menu-wrapper">
+                    {{ partial "baseMenu.html" . }}
+                    <polygon class="menu-item unscalable"
+                        points="168,18 150,31 168,42"
+                        fill="#FFF"
+                    />
+                    <polygon class="menu-item unscalable"
+                        points="186,18 168,31 186,42"
+                        fill="#FFF"
+                    />
+                    <rect class="menu-item unscalable" onclick='(function(){
+                            const p = [];
+                            const i = getPageIndexInMenu(p);
+                            if (i !== 0) {
+                                link(p[i - 1]);
+                            }
+                        })();'
+                        x="150"
+                        y="16"
+                        width="34"
+                        height="27"
+                        fill-opacity="0"
+                    />
+                    <polygon class="menu-item unscalable"
+                        points="205,35 220,15 235,35"
+                        fill="#FFF"
+                    />
+                    <rect class="menu-item unscalable"
+                        x="205"
+                        y="39"
+                        width="30"
+                        height="5"
+                        fill="#FFF"
+                    />
+                    <rect class="menu-item unscalable" onclick="home('{{ $ctx.Site.BaseURL }}')"
+                        x="205"
+                        y="16"
+                        width="31"
+                        height="27"
+                        fill-opacity="0"
+                    />
+                    <polygon class="menu-item unscalable"
+                        points="255,18 272,30 255,42"
+                        fill="#FFF"
+                    />
+                    <polygon class="menu-item unscalable"
+                        points="272,18 290,30 272,42"
+                        fill="#FFF"
+                    />
+                    <rect class="menu-item unscalable" onclick='(function(){
+                            const p = [];
+                            const i = getPageIndexInMenu(p);
+                            {{ $l := len .Site.Menus.main }}
+                            if (i < {{ $l }} && {{ $l }} !== 0) {
+                                link(p[i + 1]);
+                            }
+                        })();'
+                        x="255"
+                        y="16"
+                        width="34"
+                        height="27"
+                        fill-opacity="0"
+                    />
+                    Please use a browser that supports inline SVG
+                  </svg>
+              </div>
+            <div id="background">
+                {{ partial "circles.html" . }}
+                <div id="flickering-background">
+                    <div id="shifting-background" />
+                </div>
+            </div>
+            <div id="vignette" />
+            <div>
+                <div id="post-title-wrapper" maxWidth=95%>
+                    <div id="title">
+                        {{ .Title }}
+                    </div>
+                    <div id="animated-title">
+                        {{ .Title }}
+                    </div>
+                </div>
+                <div id="text">
+                  {{ .Content }}
+                </div>
+                {{ if .Params.copyright }}
+                    <div id="copyright">
+                        ©{{ with .Params.copyright }}{{ . }}{{ end }}
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+    </body>
+</html>

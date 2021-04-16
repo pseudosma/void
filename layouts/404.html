@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <link rel="stylesheet" href="{{ "css/404.min.css" | relURL}}">
+        <script src="{{ "js/404.min.js" | relURL}}"></script>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        <div id="background">
+            {{ partial "circles.html" . }}
+            <div id="flickering-background">
+                <div id="shifting-background" />
+            </div>
+        </div>
+        <div id="vignette" />
+        <div>
+            <div id="title-wrapper">
+                <div id="title">
+                    404
+                </div>
+                <div id="animated-title">
+                    404
+                </div>
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+    </body>
+</html>

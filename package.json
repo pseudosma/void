@@ -1,0 +1,17 @@
+{
+  "name": "void",
+  "version": "0.1.0",
+  "description": "A dark, dystopian Hugo theme for sci-fi and horror writers",
+  "keywords": [
+    "hugo",
+    "void"
+  ],
+  "author": "David Paige",
+  "license": "MIT",
+  "scripts": {
+    "build": "./scripts/build.sh"
+  },
+  "devDependencies": {
+    "minify": "^7.0.1"
+  }
+}

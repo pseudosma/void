@@ -1,0 +1,33 @@
+<svg class="circle" width="95%" height="95%">
+    <defs>
+        <filter id="f1">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+        <filter id="f2">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+        </filter>
+    </defs>
+    <circle
+        class="inner-circle" 
+        stroke="#FFF" 
+        stroke-width="2" 
+        fill="none"
+    /> 
+    <circle
+        class="inner-circle" 
+        id ="blur" 
+        stroke="#FFF" 
+        stroke-width="3" 
+        filter="url(#f1)"
+        fill="none"
+    />
+    <circle 
+        class="inner-circle" 
+        id ="blur" 
+        stroke="#FFF" 
+        stroke-width="3" 
+        filter="url(#f2)"
+        fill="none"
+    />
+    Please use a browser that supports inline SVG
+</svg>
