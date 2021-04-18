@@ -1,7 +1,6 @@
 const ratio = window.devicePixelRatio || 1;
 const titleAnimation = "text 17s ease-in-out 0s infinite";
 const shiftingAnimation = "shift 2s linear 0s infinite";
-const flickeringAnimation = "flicker 15s ease-in-out 0s infinite";
 const small = 500;
 const extraWide = 1800;
 const extraExtraWide = 2400;
@@ -45,13 +44,10 @@ function hideRevealPlayPauseButtons() {
 
 function commonPlayPause() {
     const sb = document.getElementById("shifting-background");
-    const fb = document.getElementById("flickering-background");
     if (isPlaying) {
         animate(sb, "none");
-        animate(fb, "none");
     } else {
         animate(sb, shiftingAnimation);
-        animate(fb, flickeringAnimation);
     }
     isPlaying = !isPlaying;
     hideRevealPlayPauseButtons();

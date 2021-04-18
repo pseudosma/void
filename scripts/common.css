@@ -12,41 +12,6 @@
 		transform: translate(0px, -20px);
 	}
 }
-@keyframes flicker {
-	0% {
-	  transform: translate(0px, 0px);
-	}
-	9.5% {
-		transform: translate(0px, 0px);
-	}
-	10% {
-	  	transform: translate(0px, 2%) rotateX(80deg) skewX(95deg);
-	}
-	10.5% {
-		transform: translate(0px, 0px);
-	}
-	49.5% {
-		transform: translate(0px, 0px);
-	}
-	50% {
-		transform: translate(0px, 3%) rotateX(-90deg) skewX(-110deg);
-	}
-	50.5% {
-		transform: translate(0px, 0px);
-	}
-	70% {
-		transform: translate(0px, 0px);
-	}
-	79.5% {
-		transform: translate(0px, 0px);
-	}
-	80% {
-		transform: translate(0px, 2%) rotateX(-80deg) skewX(-95deg);
-	}
-	80.5% {
-		transform: translate(0px, 0px);
-	}
-  }
 @keyframes text {
 	0% {
 		text-shadow: inherit;
@@ -156,7 +121,7 @@ body {
 	background: repeating-linear-gradient(
 	  to bottom,
 	  transparent 0%,
-	  rgba(255, 255, 255, 0.1) .1%,
+	  rgba(122, 122, 122, 0.1) .1%,
 	  transparent .5%
 	);
 }
@@ -184,15 +149,9 @@ body {
 	background: repeating-linear-gradient(
 	  to bottom,
 	  transparent 0%,
-	  rgba(255, 255, 255, 0.1) .1%,
+	  rgba(122, 122, 122, 0.1) .1%,
 	  transparent .5%
 	);
-}
-#flickering-background {
-	animation: flicker 15s ease-in-out 0s infinite;
-	position: fixed;
-	width: 100%;
-	height: 100%;
 }
 #title-wrapper {
 	z-index: 2;
@@ -270,14 +229,9 @@ body {
 		background: repeating-linear-gradient(
 		  to bottom,
 		  transparent 0%,
-		  rgba(255, 255, 255, 0.1) .1%,
+		  rgba(122, 122, 122, 0.1) .1%,
 		  transparent .5%
 		);
-	}
-	#flickering-background {
-		position: fixed;
-		width: 100%;
-		height: 100%;
 	}
 	#play-pause {
 		pointer-events: none;
