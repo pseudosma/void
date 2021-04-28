@@ -1,6 +1,6 @@
 # Void
 
-A dark, dystopian Hugo theme for sci-fi and horror writers.
+A dark, dystopian Hugo theme for sci-fi and horror writers. Check out a sample (here)[https://pseudosma.github.io/voidExample/index] 
 
 ## Words of caution
 
