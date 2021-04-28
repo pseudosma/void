@@ -12,17 +12,28 @@ A dark, dystopian Hugo theme for sci-fi and horror writers.
 
 ## Usage
 
+### Getting started
+
+  1. [Install hugo](https://gohugo.io/getting-started/installing/).
+  1. Create a new hugo project with the following command: `hugo new site yourSiteName`
+  1. Void was designed to be used as a git submodule, so navigate to your *themes* folder and install with the following command: `git clone https://github.com/pseudosma/void.git`
+  1. Move the *contents* folder and *config.toml* from the *archetypes* folder to your main directory
+  1. Run `hugo server`, then navigate to *localhost:1313* in your browser to test.
+
 ### Changing the index's title, subtitle, and navigation text
 
 Parts of the index can be changed by editing these fields in the config.toml file.
 
 ```toml
 title = "void"
+baseURL = "http://localhost:1313/"
 
 [params]
   subtitle = "is this from the future or the past?"
   navigationText = "enter"
 ```
+
+:warning: It is very important to set the *baseUrl* value to the root of your site because references to the CSS and javascript files are built from  absolute paths based on this value. If you're testing a published site locally, 
 
 ### Adding a New Story
 
@@ -98,12 +109,6 @@ Simply add more entries for more color choices, or change the existing ones. Tex
 :warning: The actual site files reference the minified version of _common.js_, so you must re-minify the file after changes are made.
 
 ### Development Workflow
-
-#### Getting started
-
-To get a basic version of the site up and running, replace a fresh Hugo site's version of the *content* and *config.toml* with the ones from the *archetypes* folder.
-
-Run `hugo server`, then navigate to *localhost:1313* in your browser to test.
 
 #### Making revisions to the theme
 

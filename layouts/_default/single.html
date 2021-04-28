@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     <head>
-        <link rel="stylesheet" href="{{ "css/post.min.css" | relURL }}">
-        <script src="{{ "js/post.min.js" | relURL }}"></script>
+        <link rel="stylesheet" href="{{ "../css/post.min.css" | absURL }}">
+        <script src="{{ "../js/post.min.js" | absURL }}"></script>
         {{ partial "head.html" . }}
         {{ $ctx := . }}
         <script>
