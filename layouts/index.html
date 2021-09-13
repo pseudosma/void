@@ -26,9 +26,9 @@
                         if ({{ .Identifier }} !== "" && {{ .Identifier }} !== "\"\"") {
                           {{ if .HasChildren }}
                             {{ $cp := index .Children 0 }}
-                            p.push("{{ $cp.URL }}{{ $cp.Identifier }}".replace(/(\s|")/gm,""));
+                            p.push("{{ $cp.Parent }}/{{ $cp.Identifier }}".replace(/(\s|")/gm,""));
                           {{ else }}
-                            p.push("{{ .URL }}{{ .Identifier }}".replace(/(\s|")/gm,""));
+                            p.push("{{ .Identifier }}".replace(/(\s|")/gm,""));
                           {{ end }}
                         }
                       {{ end }}
@@ -81,7 +81,7 @@
                     </div>
                     <div style="text-align: right;">
                       {{ if not .HasChildren }}
-                        <span onclick="link('{{ .URL }}{{ .Identifier }}')">
+                        <span onclick="link('{{ .Parent }}{{ .Identifier }}')">
                           {{ partial "navigate.html" . }}
                         </span>
                       {{ else }}
@@ -115,7 +115,7 @@
                                 </td>
                               {{ end }}
                               <td>
-                                <span onclick="link('{{ .URL }}{{ .Identifier }}')">
+                                <span onclick="link('{{ .Identifier }}')">
                                   {{ partial "navigate.html" . }}
                                 </span>
                               </td>
