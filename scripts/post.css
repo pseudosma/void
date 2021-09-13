@@ -26,10 +26,12 @@
 }
 
 #post-title-wrapper {
+    visibility: hidden;
     font-family: Andale Mono, AndaleMono, monospace;
     text-align: center;
 }
 #text {
+    visibility: hidden;
     padding: 10px;
     border-radius: 10px;
     background-color: var(--defaultBackgroundColor);

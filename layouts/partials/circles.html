@@ -1,10 +1,10 @@
-<svg class="circle" width="95%" height="95%">
+<svg class="circle" width="95%" height="95%" preserveAspectRatio="none">
     <defs>
         <filter id="f1">
           <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
         </filter>
         <filter id="f2">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
         </filter>
     </defs>
     <circle
@@ -15,15 +15,13 @@
     /> 
     <circle
         class="inner-circle" 
-        id ="blur" 
         stroke="#FFF" 
         stroke-width="3" 
         filter="url(#f1)"
         fill="none"
     />
     <circle 
-        class="inner-circle" 
-        id ="blur" 
+        class="inner-circle"
         stroke="#FFF" 
         stroke-width="3" 
         filter="url(#f2)"

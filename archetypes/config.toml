@@ -29,13 +29,11 @@ title = "void"
 
   [[menu.main]]
     identifier = "story_with_chapters_1"
-    url = "story_with_chapters/"
     weight = 1
     parent = "story_with_chapters"
 
   [[menu.main]]
     identifier = "story_with_chapters_2"
-    url = "story_with_chapters/"
     weight = 2
     parent = "story_with_chapters"
     [menu.main.params]

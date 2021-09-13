@@ -7,7 +7,7 @@
     </head>
     <body>
         <div style="display: flex; justify-content: center;">
-            <svg id="menu-wrapper">
+            <svg id="menu-wrapper" preserveAspectRatio="none">
                 {{ partial "baseMenu.html" . }}
                 <polygon class="menu-item unscalable"
                   points="154,16 173,30 154,44"
@@ -23,12 +23,14 @@
                 <rect class="menu-item unscalable" onclick='(function(){
                       const p = [];
                       {{ range (shuffle .Site.Menus.main) }}
-                        {{ if .HasChildren }}
-                          {{ $cp := index .Children 0 }}
-                          p.push("{{ $cp.URL }}{{ $cp.Identifier }}".replace(/(\s|")/gm,""));
-                        {{ else }}
-                          p.push("{{ .URL }}{{ .Identifier }}".replace(/(\s|")/gm,""));
-                        {{ end }}
+                        if ({{ .Identifier }} !== "" && {{ .Identifier }} !== "\"\"") {
+                          {{ if .HasChildren }}
+                            {{ $cp := index .Children 0 }}
+                            p.push("{{ $cp.URL }}{{ $cp.Identifier }}".replace(/(\s|")/gm,""));
+                          {{ else }}
+                            p.push("{{ .URL }}{{ .Identifier }}".replace(/(\s|")/gm,""));
+                          {{ end }}
+                        }
                       {{ end }}
                       link(p[Math.floor(Math.random() * (p.length))]);
                   })();'

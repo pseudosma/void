@@ -1,8 +1,8 @@
 window.onload = load;
-window.addEventListener('resize', scaleElements);
+window.addEventListener('resize', () => {scaleElements(false)});
 
-function scaleElements() {
-    commonScaleElements();
+function scaleElements(firstRun) {
+    commonScaleElements(firstRun);
     //scroll to top first to avoid positioning issues
     window.scrollTo(0, 0);
 
@@ -48,7 +48,9 @@ function scaleElements() {
 }
 
 function load() {
-    scaleElements();
+    scaleElements(true);
+    document.getElementById("post-title-wrapper").style.visibility = "visible";
+    document.getElementById("text").style.visibility = "visible";
     document.getElementById("menu-wrapper").style.visibility = "visible";
     commonLoad();
 }

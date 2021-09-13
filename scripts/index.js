@@ -1,13 +1,13 @@
 window.onload = load;
-window.addEventListener('resize', scaleElements);
+window.addEventListener('resize', () => {scaleElements(false)});
 const subtitleAnimation = "text 11s ease-in-out 0s infinite";
 const hideAnimation = "hide 1s linear forwards";
 const revealAnimation = "reveal 1s linear forwards";
 const postTitleAnimation = "text 7s ease-in-out 0s infinite";
 var hasNavigated = false;
 
-function scaleElements() {
-    commonScaleElements();
+function scaleElements(firstRun) {
+    commonScaleElements(firstRun);
     //scroll to top first to avoid positioning issues
     window.scrollTo(0, 0);
 
@@ -163,7 +163,7 @@ function clearAnimation() {
 }
 
 function load() {
-    scaleElements();
+    scaleElements(true);
     const circles = document.getElementsByClassName("circle");
     for (i = 0; i < circles.length; i++) {
         circles[i].style.visibility = "visible";

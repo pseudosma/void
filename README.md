@@ -33,7 +33,7 @@ baseURL = "http://localhost:1313/"
   navigationText = "enter"
 ```
 
-:warning: It is very important to set the *baseUrl* value to the root of your site because references to the CSS and javascript files are built from  absolute paths based on this value. If you're testing a published site locally, 
+:warning: It is very important to set the *baseUrl* value to the root of your site because references to the CSS and javascript files are built from absolute paths based on this value. If you're testing a published site locally, set the baseUrl to "http://localhost:1313/".
 
 ### Adding a New Story
 
@@ -78,16 +78,13 @@ baseURL = "http://localhost:1313/"
      [[menu.main]]
         identifier = "new_story_1"
         parent = "new_story"
-        url = "new_story/"
         weight = 1
         [menu.main.params]
             description = "..."
    ```
-  2. Create a new chapter's folder that matches the *url* and add a single markdown file in it that matches the *identifier*.
+  2. Create a new chapter's folder that matches the *parent* and add a single markdown file in it that matches the *identifier*.
 
   3. Add a title and copyright to your markdown file and start writing.
-
-:warning: All links to stories and chapters combine the *url* and the *identifer* to build the path. Use the *url*, ending in a slash, to specify any parent folders and the *identifier* to specify the file name .
 
 ## Further Customization
 
@@ -112,7 +109,7 @@ Simply add more entries for more color choices, or change the existing ones. Tex
 
 #### Making revisions to the theme
 
-These instructions assume that you already have node.js installed and have a passing familiarity with javascript development:
+These instructions assume that you already have node.js installed and have a passing familiarity with front-end javascript development:
 
   1. Copy the git repository
   1. Make the appropriate file changes

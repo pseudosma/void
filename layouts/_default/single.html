@@ -6,16 +6,28 @@
         {{ partial "head.html" . }}
         {{ $ctx := . }}
         <script>
+            function cleanPartialAddressForHugo(address) {
+                var retVal = address.replace(/"/gm,"");
+                if (!retVal.endsWith("/")) {
+                    retVal = retVal + "/";
+                }
+                return retVal;
+            }
+
             function getPageIndexInMenu(p) {
+                const s1 = `{{ $ctx.Site.BaseURL }}`
+                const bu = cleanPartialAddressForHugo(s1);
                 var c = 0;
+                var u, ur, s2 = "";
                 if (Array.isArray(p)) {
                     var i = 0;
                     const l = window.location.href.split("?");
                     {{ range .Site.Menus.main }}
-                        var u;
+                        s2 = `{{ .Identifier }}`;
+                        ur = cleanPartialAddressForHugo(s2);
                         {{ if .HasChildren }}
                             {{ range .Children }}
-                                u = `{{ $ctx.Site.BaseURL }}{{ .URL }}{{ .Identifier }}`.replace(/"/gm,"");
+                                u = (bu + ur + `{{ .Identifier }}`).replace(/"/gm,"");
                                 if ( l[0] === u || l[0] === (u + "/")) {
                                     c = i; 
                                 }
@@ -23,8 +35,8 @@
                                 i ++;
                             {{ end }}
                         {{ else }}
-                            u = `{{ $ctx.Site.BaseURL }}{{ .URL }}{{ .Identifier }}`.replace(/"/gm,"");
-                            if ( l[0] === u || l[0] === (u + "/")) {
+                            u = (bu + ur);
+                            if ( l[0] === u || l[0] + "/" === u) {
                                 c = i; 
                             }
                             p.push(u);
@@ -39,7 +51,7 @@
     <body>
         <div style="display: flex; justify-content: center;">
             <div style="display: flex; justify-content: center;">
-                <svg id="menu-wrapper">
+                <svg id="menu-wrapper" preserveAspectRatio="none">
                     {{ partial "baseMenu.html" . }}
                     <polygon class="menu-item unscalable"
                         points="168,18 150,31 168,42"
@@ -92,7 +104,7 @@
                             const p = [];
                             const i = getPageIndexInMenu(p);
                             {{ $l := len .Site.Menus.main }}
-                            if (i < {{ $l }} && {{ $l }} !== 0) {
+                            if (i < {{ $l }} - 1 && {{ $l }} !== 0) {
                                 link(p[i + 1]);
                             }
                         })();'

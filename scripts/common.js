@@ -53,7 +53,7 @@ function commonPlayPause() {
     hideRevealPlayPauseButtons();
 }
 
-function commonScaleElements() {
+function commonScaleElements(firstRun) {
     var scale;
     if (window.innerWidth < small) {
         const s = document.getElementsByClassName("td-hidden-at-small");
@@ -71,11 +71,28 @@ function commonScaleElements() {
     } else {
         scale = 1;
     }
+    const mw = document.getElementById("menu-wrapper");
+    if (!firstRun && (hasNavigated === true)) { //forcing deep equality check on hasNavigated since it's undef on some pages
+        //Safari does not scale elements that have received animation very well, 
+        //so the animations are removed. This hase the effect of closing the menu.  
+        menuOpen = false;
+        const sb = document.getElementById("stop-button");
+        const m = document.getElementsByClassName("menu");
+        const mi = document.getElementsByClassName("menu-items");
+        animate(mw, null);
+        animate(sb, null);
+        for (i = 0; i < m.length; i++) {
+            animate(m[i], null);
+        }
+        for (i = 0; i < mi.length; i++) {
+            animate(mi[i], null);
+        }
+    }
     const oldScale = getComputedStyle(document.documentElement).getPropertyValue('--scale');
     if (oldScale != scale) {
         document.documentElement.style.setProperty('--scale', scale);
-        const mw = document.getElementById("menu-wrapper");
         for (i = 0; i < mw.childElementCount; i++) {
+            //loop through each svg element and scale each applicable size attribute
             if (mw.children[i].classList.contains("unscalable")) {
                 const a = [];
                 a.push({k: "r", v: mw.children[i].getAttribute("r")});
@@ -123,6 +140,8 @@ function commonScaleElements() {
                     }
                     mw.children[i].setAttribute("points", pString);
                 }
+            } else if (mw.children[i].classList.contains("menu")) {
+                mw.setAttribute("height", mw.children[i].getAttribute("width") + 7);
             }
         }
         document.documentElement.style.setProperty('--scale', scale);
@@ -169,7 +188,9 @@ function toggleMenu() {
         animate(sb, "closeStopButton 0.5s ease-in-out 0s forwards");
     } else {
         for (i = 0; i < mi.length; i++) {
-          const n = i < 10 ? ("0" + i) : (i) ;
+          const n = i < 10 ? ("0" + i) : (i) ; 
+          //push animation duration up for more items in menu
+          //this make each item further out take a little longer to spring out
           animate(mi[i], "revealMenuItems 0.5s ease-in-out 0." + n + "s forwards");
         }
         for (i = 0; i < m.length; i++) {
@@ -224,7 +245,7 @@ function scaleInnerCircles(h, w) {
         innerCircles[i].setAttribute("cy", (h / 2) + "px");
         var n = w / 3;
         if (w > h) {
-            n = h / 3
+           n = h / 3
         }
         if (n < 100) {
             n = 100;
