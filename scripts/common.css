@@ -107,6 +107,7 @@
 body {
 	background-color:#000;
 	overflow-x: hidden;
+	font-family: Andale Mono, AndaleMono, monospace;
 }
 #background {
 	overflow-x: hidden;
@@ -157,20 +158,19 @@ body {
 	z-index: 2;
 	visibility: hidden;
 	text-align: center;
-	font-family: Andale Mono, AndaleMono, monospace;
 }
 #title {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	font-style: italic;
+	letter-spacing: 7px;
 }
 #animated-title {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	font-style: italic;
 	animation: text 17s ease-in-out 0s infinite;
+	letter-spacing: 7px;
 }
 #stop-button {
 	cursor: pointer;

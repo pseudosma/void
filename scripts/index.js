@@ -19,23 +19,23 @@ function scaleElements(firstRun) {
         scaleInnerCircles(h, w);
 
         const m = [];
-        var tfh = "24pt";
-        var sfh = "14pt";
+        var tfh = "20pt";
+        var sfh = "12pt";
         var nfh = "14pt";
         if (w > small) {
-            tfh = "48px"
-            sfh = "24px";
-            nfh = "20px";
+            tfh = "28px";
+            sfh = "16px";
+            nfh = "18px";
         }
         if (w > extraWide) {
-            tfh = "64px"
-            sfh = "36px";
-            nfh = "28px";
+            tfh = "36px";
+            sfh = "20px";
+            nfh = "23px";
         }
         if (w > extraExtraWide) {
-            tfh = "72px"
-            sfh = "48px";
-            nfh = "36px";
+            tfh = "48px";
+            sfh = "28px";
+            nfh = "30px";
         }
     
         m.push(document.getElementById("title"));

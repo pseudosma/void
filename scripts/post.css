@@ -27,7 +27,6 @@
 
 #post-title-wrapper {
     visibility: hidden;
-    font-family: Andale Mono, AndaleMono, monospace;
     text-align: center;
 }
 #text {
@@ -36,7 +35,6 @@
     border-radius: 10px;
     background-color: var(--defaultBackgroundColor);
     color: var(--defaultTextColor);
-	font-family: Verdana, sans-serif;
     font-size: 14pt;
     margin: auto;
     margin-bottom: 100px;
@@ -45,7 +43,6 @@
     text-align: right;
     position: relative; 
     bottom: 0px;	
-    font-family: Verdana, sans-serif;
     font-size: 10pt; 
     padding: 15px;
 }

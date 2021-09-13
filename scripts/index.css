@@ -98,18 +98,21 @@
 #subtitle {
 	position: fixed;
 	color: #aaafb9;
+	letter-spacing: 5px;
 }
 #animated-subtitle {
 	position: fixed;
 	color: #aaafb9;
 	animation: text 11s ease-in-out 0s infinite;
+	letter-spacing: 5px;
 }
 #navigate {
-	padding-top: 10px;
+	padding-top: 35pt;
 	position: fixed;
 	cursor: pointer;
 	color: #FFF;
 	z-index: 2;
+	letter-spacing: 5px;
 }
 #posts {
 	color: #FFF;
@@ -124,7 +127,6 @@
 }
 .post-title {
 	cursor: pointer;
-	font-family: Andale Mono, AndaleMono, monospace;
 	font-size: 18pt;
 	font-style: italic;
 }
@@ -141,12 +143,10 @@
 	border-radius: 5px;
 	background-color: var(--defaultBackgroundColor);
 	color: var(--defaultTextColor);
-	font-family: Verdana, sans-serif;
 	font-size: 14pt;
 	z-index:-1;
 }
 .chapters {
-	font-family: Andale Mono, AndaleMono, monospace;
 	font-size: 14pt;
 	font-style: italic;
 	margin: auto;
