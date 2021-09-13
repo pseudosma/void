@@ -81,7 +81,7 @@
                     </div>
                     <div style="text-align: right;">
                       {{ if not .HasChildren }}
-                        <span onclick="link('{{ .Parent }}{{ .Identifier }}')">
+                        <span onclick="link('{{ .Identifier }}')">
                           {{ partial "navigate.html" . }}
                         </span>
                       {{ else }}
@@ -115,7 +115,7 @@
                                 </td>
                               {{ end }}
                               <td>
-                                <span onclick="link('{{ .Identifier }}')">
+                                <span onclick="link('{{ .Parent }}/{{ .Identifier }}')">
                                   {{ partial "navigate.html" . }}
                                 </span>
                               </td>
