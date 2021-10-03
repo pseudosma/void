@@ -6,6 +6,7 @@ const extraWide = 1800;
 const extraExtraWide = 2400;
 var isPlaying = window.matchMedia('(prefers-reduced-motion)').matches ? false : true;
 var menuOpen = false;
+var hasNavigated = false;
 
 const palette = [
     {f: "#aaafb9", bg: "none"},

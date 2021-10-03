@@ -17,10 +17,10 @@
             function getPageIndexInMenu(p) {
                 const s1 = `{{ $ctx.Site.BaseURL }}`
                 const bu = cleanPartialAddressForHugo(s1);
-                var c = 0;
-                var u, ur, s2 = "";
+                var c = 0; //current index
+                var u, ur, s2 = ""; //name holders
+                var i = 0; //overall length
                 if (Array.isArray(p)) {
-                    var i = 0;
                     const l = window.location.href.split("?");
                     {{ range .Site.Menus.main }}
                         s2 = `{{ .Identifier }}`;
@@ -44,7 +44,7 @@
                         {{ end }}
                     {{ end }}
                 }
-                return c;
+                return [c,i];
             }
         </script>
     </head>
@@ -64,8 +64,8 @@
                     <rect class="menu-item unscalable" onclick='(function(){
                             const p = [];
                             const i = getPageIndexInMenu(p);
-                            if (i !== 0) {
-                                link(p[i - 1]);
+                            if (i[0] !== 0) {
+                                link(p[i[0] - 1]);
                             }
                         })();'
                         x="150"
@@ -103,9 +103,8 @@
                     <rect class="menu-item unscalable" onclick='(function(){
                             const p = [];
                             const i = getPageIndexInMenu(p);
-                            {{ $l := len .Site.Menus.main }}
-                            if (i < {{ $l }} - 1 && {{ $l }} !== 0) {
-                                link(p[i + 1]);
+                            if (i[0] < i[1] - 1) {
+                                link(p[i[0] + 1]);
                             }
                         })();'
                         x="255"

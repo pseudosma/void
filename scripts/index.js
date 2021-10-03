@@ -4,7 +4,6 @@ const subtitleAnimation = "text 11s ease-in-out 0s infinite";
 const hideAnimation = "hide 1s linear forwards";
 const revealAnimation = "reveal 1s linear forwards";
 const postTitleAnimation = "text 7s ease-in-out 0s infinite";
-var hasNavigated = false;
 
 function scaleElements(firstRun) {
     commonScaleElements(firstRun);
